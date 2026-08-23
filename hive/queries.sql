@@ -1,9 +1,19 @@
--- DSC 650 Portfolio Starter
--- Replace these comments with representative Hive queries from your final project.
---
--- Choose queries that demonstrate meaningful work rather than every query you ran.
+-- DSC 650 Final Project
+-- Representative Hive queries for the Loan Approval Prediction dataset
 
--- Example:
--- SELECT ...
--- FROM ...
--- WHERE ...;
+-- Verify that the managed Hive table was successfully populated.
+-- Result: 614 records.
+SELECT COUNT(*) AS total_records
+FROM loan_approval;
+
+-- Aggregate loan applications by approval status to verify
+-- the loan_status field and demonstrate Hive aggregation.
+SELECT loan_status, COUNT(*) AS application_count
+FROM loan_approval
+GROUP BY loan_status;
+
+-- Display sample records to validate that the dataset columns
+-- align correctly with the Hive table schema.
+SELECT *
+FROM loan_approval
+LIMIT 5;
