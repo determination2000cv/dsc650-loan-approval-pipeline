@@ -1,14 +1,25 @@
--- DSC 650 Portfolio Starter
--- Replace this file with the Hive DDL from your final project.
---
--- Before publishing:
---   1. Remove credentials or environment-specific secrets.
---   2. Add short comments explaining important tables.
---   3. Keep the SQL that best demonstrates your work.
+-- DSC 650 Final Project
+-- Hive managed table for the Loan Approval Prediction dataset
 
--- Example structure only:
--- CREATE EXTERNAL TABLE your_table (
---     id STRING,
---     ...
--- )
--- STORED AS ...;
+CREATE TABLE loan_approval (
+  loan_id STRING,
+  gender STRING,
+  married STRING,
+  dependents STRING,
+  education STRING,
+  self_employed STRING,
+  applicant_income INT,
+  coapplicant_income DOUBLE,
+  loan_amount DOUBLE,
+  loan_amount_term DOUBLE,
+  credit_history DOUBLE,
+  property_area STRING,
+  loan_status STRING
+)
+ROW FORMAT DELIMITED
+FIELDS TERMINATED BY ','
+STORED AS TEXTFILE
+TBLPROPERTIES ("skip.header.line.count"="1");
+
+LOAD DATA INPATH '/data/loan_approval/loan_approval.csv'
+INTO TABLE loan_approval;
