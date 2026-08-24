@@ -52,6 +52,6 @@ After the Spark MLlib application completed, a second scan of `loan_model_metric
 
 The values displayed by HBase match the evaluation metrics generated during the Spark execution. This confirms that Spark successfully persisted the model-performance results into HBase.
 
-![Populated HBase Scan](screenshots/hbase-populated-scan.png)
+![Populated HBase Scan](https://raw.githubusercontent.com/determination2000cv/dsc650-loan-approval-pipeline/main/hbase/screenshots/hbase-populated-scan.png)
 
 This final scan provides end-to-end verification that the pipeline successfully moved from ingestion and distributed storage through SQL access, machine learning, and persistent NoSQL results.
