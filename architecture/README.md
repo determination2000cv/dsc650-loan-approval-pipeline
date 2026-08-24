@@ -10,4 +10,4 @@ The architecture diagram is stored at:
 
 [`architecture-diagram.png`](architecture-diagram.png)
 
-The diagram provides the high-level view of the pipeline, while the component directories contain the implementation code, written explanations, and execution evidence for each stage.
+The diagram provides a high-level view of the Loan Approval Prediction pipeline, including the HDFS storage path, Hive managed table, Spark MLlib processing, YARN execution, and HBase metrics persistence.
