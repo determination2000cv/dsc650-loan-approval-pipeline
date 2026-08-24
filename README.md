@@ -29,6 +29,28 @@ At a high level, the pipeline performs the following:
 6. **Apache Spark** writes model-performance metrics into **Apache HBase**.
 7. **Apache HBase** scans verify that the machine learning metrics were successfully persisted.
 
+### Project Dataset & Results
+
+**Dataset:** Loan Approval Prediction  
+**Hive table:** `loan_approval`  
+**Records:** 614  
+**MLlib algorithm:** Logistic Regression  
+**HBase results table:** `loan_model_metrics`
+
+The Spark MLlib model used applicant income, co-applicant income, loan amount, loan term, and credit history to predict loan approval status.
+
+The final model produced:
+
+| Metric | Result |
+|---|---:|
+| Accuracy | 0.8533 |
+| Precision | 0.8554 |
+| Recall | 0.8533 |
+| F1 Score | 0.8393 |
+| AUC | 0.7062 |
+
+The resulting metrics were persisted by Spark into HBase under the row key `logistic_regression_run1` and verified with a final HBase scan.
+
 This repository preserves the architecture, source code, SQL, flow definitions, execution evidence, and results so the implementation can be reviewed even after the original Google Cloud environment is no longer running.
 
 ---
@@ -220,7 +242,7 @@ The target HBase table is created before Spark runs and is first verified with a
 </p>
 
 <p align="center">
-  <img src="hbase/screenshots/hbase-populated-scan.png" alt="Populated HBase scan after Spark execution" width="900">
+  <img src="https://raw.githubusercontent.com/determination2000cv/dsc650-loan-approval-pipeline/main/hbase/screenshots/hbase-populated-scan.png" alt="Populated HBase scan after Spark execution" width="900">
 </p>
 
 **Implementation details:** [`hbase/README.md`](hbase/README.md)  
